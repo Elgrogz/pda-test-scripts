@@ -43,4 +43,20 @@ describe('calculator', function () {
     assert.equal(calculator.previousTotal, 3)
   });
 
+  it('can concatenate multiple number button clicks', function() {
+    calculator.numberClick(1);
+    calculator.numberClick(2);
+    calculator.numberClick(3);
+    calculator.numberClick(4);
+    assert.equal(calculator.runningTotal, '1234')
+  });
+
+  it('can chain multiple operations together', function() {
+    calculator.numberClick(2);
+    calculator.operatorClick('+');
+    calculator.operatorClick('+');
+    calculator.operatorClick('+');
+    assert.equal(calculator.runningTotal, '8')
+  })
+
 });
