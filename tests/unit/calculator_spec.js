@@ -57,6 +57,18 @@ describe('calculator', function () {
     calculator.operatorClick('+');
     calculator.operatorClick('+');
     assert.equal(calculator.runningTotal, '8')
-  })
+  });
+
+  it('clear the running total without affecting the calculation', function() {
+    calculator.numberClick(2);
+    calculator.operatorClick('+');
+    calculator.numberClick(2);
+    calculator.operatorClick('+');
+    calculator.numberClick(2);
+    calculator.clearClick();
+    calculator.operatorClick('=');
+    assert.equal(calculator.previousTotal, '4')
+  });
+
 
 });
